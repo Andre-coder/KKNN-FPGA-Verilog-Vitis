@@ -11,20 +11,23 @@ using namespace std;
 
 int main() {
     #pragma HLS DATAFLOW
-    // Example Training Data (Features + Class Labels)
+    // Enter your Dataset for Analysis
     vector<DataPoint> trainingData = {
-        {{5.1, 3.5, 1.4, 0.2}, 0},  // Iris setosa
+    // Values for your 1th class 1
+        {{5.1, 3.5, 1.4, 0.2}, 0}, 
         {{4.9, 3.0, 1.4, 0.2}, 0},
-        {{6.2, 2.8, 4.8, 1.8}, 1},  // Iris versicolor
+    // Values for your 2th class 2
+        {{6.2, 2.8, 4.8, 1.8}, 1},  
         {{6.0, 2.7, 5.1, 1.6}, 1},
-        {{6.3, 3.3, 6.0, 2.5}, 2},  // Iris virginica
+    // Values for your 3th class 3 
+        {{6.3, 3.3, 6.0, 2.5}, 2}, 
         {{5.8, 2.7, 5.1, 1.9}, 2}
     };
     
     // Test Point
     vector<double> testPoint = {5.7, 2.8, 4.1, 1.3};
     
-    // K value (number of neighbors to consider)
+    // K value 
     int k = 3;
     
     // Classify the test point
@@ -45,3 +48,5 @@ int main() {
     
     return 0;
 }
+
+///This study was implemanted testing fall detection systems
