@@ -7,3 +7,9 @@
 - [Contributing](#contributing)
 - [License](#license)
 - [Contact](#contact)
+
+
+k-NN implemantation Design
+
+![KNN FPGA Block Design](KNN_BLOCK_DESIGN.PNG)
+
