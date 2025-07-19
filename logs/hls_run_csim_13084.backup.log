@@ -1,0 +1,62 @@
+  **** HLS Build v2025.1 6135595
+INFO: [HLS 200-2005] Using work_dir C:/Users/marianoandre/Documents/test1/test/test 
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/marianoandre/Documents/test1/test/test/vitis-comp.json
+INFO: [HLS 200-10] Creating and opening component 'C:/Users/marianoandre/Documents/test1/test/test'.
+INFO: [HLS 200-1505] Using default flow_target 'vivado'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-2174] Applying component config ini file C:/Users/marianoandre/Documents/test1/test/hls_config.cfg
+INFO: [HLS 200-1465] Applying config ini 'syn.file=knn.h' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(12)
+INFO: [HLS 200-10] Adding design file 'C:/Users/marianoandre/Documents/test1/test/knn.h' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.file=knn.cpp' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(13)
+INFO: [HLS 200-10] Adding design file 'C:/Users/marianoandre/Documents/test1/test/knn.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'tb.file=knn_test.cpp' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(11)
+INFO: [HLS 200-10] Adding test bench file 'C:/Users/marianoandre/Documents/test1/test/knn_test.cpp' to the project
+INFO: [HLS 200-1465] Applying config ini 'syn.top=knn' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(10)
+INFO: [HLS 200-1465] Applying config ini 'flow_target=vitis' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(4)
+INFO: [HLS 200-1505] Using flow_target 'vitis'
+Resolution: For help on HLS 200-1505 see docs.xilinx.com/access/sources/dita/topic?Doc_Version=2025.1%20English&url=ug1448-hls-guidance&resourceid=200-1505.html
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_latency=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_alignment_byte_size=64
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_interface -m_axi_max_widen_bitwidth=512
+INFO: [HLS 200-435] Setting 'open_solution -flow_target vitis' configuration: config_rtl -register_reset_num=3
+INFO: [HLS 200-1465] Applying config ini 'part=xc7z014sclg400-1' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(1)
+INFO: [HLS 200-1611] Setting target device to 'xc7z014s-clg400-1'
+INFO: [HLS 200-1465] Applying config ini 'csim.clean=1' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(7)
+INFO: [HLS 200-1465] Applying config ini 'csim.code_analyzer=0' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(9)
+INFO: [HLS 200-1465] Applying config ini 'package.output.format=ip_catalog' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(5)
+INFO: [HLS 200-1465] Applying config ini 'sim.O=1' from C:/Users/marianoandre/Documents/test1/test/hls_config.cfg(8)
+INFO: [HLS 200-2176] Writing Vitis IDE component file C:/Users/marianoandre/Documents/test1/test/test/vitis-comp.json
+INFO: [SIM 211-2] *************** CSIM start ***************
+INFO: [SIM 211-4] CSIM will launch CLANG as the compiler.
+INFO: [HLS 200-2036] Building optimized C Simulation binaries
+   Compiling ../../../../knn_test.cpp in release mode
+csim.mk:88: recipe for target 'obj/knn_test.o' failed
+In file included from ../../../../knn_test.cpp:4:
+../../../../knn.cpp:9:6: error: functions that differ only in their return type cannot be overloaded
+void calculateDistance(const vector<double>& point1,  const vector<double>& point2) {
+~~~~ ^
+../../../../knn.h:13:8: note: previous declaration is here
+double calculateDistance(const std::vector<double>& point1, 
+~~~~~~ ^
+In file included from ../../../../knn_test.cpp:4:
+../../../../knn.cpp:19:6: error: functions that differ only in their return type cannot be overloaded
+void knnClassify(const vector<DataPoint>& trainingData, const vector<double>& testPoint, int k) {
+~~~~ ^
+../../../../knn.h:16:5: note: previous declaration is here
+int knnClassify(const std::vector<DataPoint>& trainingData,
+~~~ ^
+../../../../knn_test.cpp:28:26: error: call to 'knnClassify' is ambiguous
+    int predictedClass = knnClassify(trainingData, testPoint, k);
+                         ^~~~~~~~~~~
+../../../../knn.h:16:5: note: candidate function
+int knnClassify(const std::vector<DataPoint>& trainingData,
+    ^
+../../../../knn.cpp:19:6: note: candidate function
+void knnClassify(const vector<DataPoint>& trainingData, const vector<double>& testPoint, int k) {
+     ^
+3 errors generated.
+make: *** [obj/knn_test.o] Error 1
+ERROR: [SIM 211-100] 'csim_design' failed: compilation error(s).
+INFO: [SIM 211-3] *************** CSIM finish ***************
+ERROR: 4
+INFO: [HLS 200-112] Total CPU user time: 3 seconds. Total CPU system time: 4 seconds. Total elapsed time: 74.56 seconds; peak allocated memory: 150.195 MB.
