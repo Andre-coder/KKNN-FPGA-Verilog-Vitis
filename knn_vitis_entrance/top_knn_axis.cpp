@@ -37,3 +37,5 @@ void top_knn_axis(
     // Call the real implementation
     knn_axis(training_features_in, training_labels_in, test_features_in, predicted_label_out);
 }
+
+///This study was implemanted testing fall detection systems, Mariano Andre
