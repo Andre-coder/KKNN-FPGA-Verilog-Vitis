@@ -9,6 +9,8 @@
 - [Contact](#contact)
 
 
+## Overview
+
 k-NN implemantation Design
 
 ![KNN FPGA Block Design](KNN_BLOCK_DESIGN.PNG)
